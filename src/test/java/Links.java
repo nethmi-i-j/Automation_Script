@@ -22,22 +22,42 @@ public class Links {
 
     public void LinksTest() throws InterruptedException {
 
-        // get tabs count
-        List<WebElement> listOfTabs = driver.findElements(By.xpath("//div[@id='crosscol']//ul/li/a"));
-        int count = listOfTabs.size();
-        System.out.println("size is: " + count);
+//        // get tabs count
+//        List<WebElement> listOfTabs = driver.findElements(By.xpath("//div[@id='crosscol']//ul/li/a"));
+//        int count = listOfTabs.size();
+//        System.out.println("size is: " + count);
+//
+//        // chek for all tabs are working
+//        for (int i=0; i<count; i++) {
+//            List<WebElement> allTabs = driver.findElements(By.xpath("//div[@id='crosscol']//ul/li/a"));
+//            WebElement tab = allTabs.get(i);
+//            tab.click();
+//            String title = driver.getTitle();
+//            System.out.println("page title is: " + title);
+//
+//            driver.navigate().back();
+//            Thread.sleep(2000);
+//        }
 
-        // chek for all tabs are working
-        for (int i=0; i<count; i++) {
-            List<WebElement> allTabs = driver.findElements(By.xpath("//div[@id='crosscol']//ul/li/a"));
-            WebElement tab = allTabs.get(i);
-            tab.click();
-            String title = driver.getTitle();
-            System.out.println("page title is: " + title);
+        Thread.sleep(2000);
 
-            driver.navigate().back();
-            Thread.sleep(2000);
+        // get all link count
+        List<WebElement> allLinks = driver.findElements(By.tagName("a"));
+        int linksCount = allLinks.size();
+        System.out.println("all links count: " + linksCount);
+
+        // get the link destination
+        for (WebElement link : allLinks) {
+            String destination = link.getAttribute("href");
+            System.out.println("link direct to: " + destination);
         }
+
+
+
+
+
+
+
 
 
 
